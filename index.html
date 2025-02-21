@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colosseum '25</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: url('background1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative;
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+            animation: fadeIn 1s ease-out;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            filter: blur(3px);
+            z-index: -1;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Opening Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 1); /* Fully opaque background */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .overlay-content {
+            text-align: center;
+            font-size: 2em;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .overlay p {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.9em; /* Smaller font size */
+            color: #ccc; /* Lighter font color */
+            font-weight: normal; /* Remove bold styling */
+            text-align: center;
+            margin: 0;
+        }
+
+        .overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        header {
+            padding: 20px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            position: relative;
+        }
+
+        header .logo-left,
+        header .logo-right {
+            position: absolute;
+            top: 10px;
+            width: auto;
+            height: 120px;
+        }
+
+        header .logo-left {
+            left: 10px;
+        }
+
+        header .logo-right {
+            right: 10px;
+        }
+
+        
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 0;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            padding: 10px;
+            text-transform: uppercase;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ccc;
+            background-color: #fff;
+            border-color: #fff;
+            transform: scale(1.1);
+        }
+
+        .banner {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(0, 0, 0, 0.6);
+            margin: auto;
+            border-radius: 10px;
+            width: 50%;
+            opacity: 0;
+            animation: slideUp 1s forwards;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .banner h1 {
+            font-size: 2em;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            font-style: italic;
+        }
+
+        .banner h3 {
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .banner p {
+            font-size: 1em;
+            font-style: italic;
+            margin-bottom : 15px;
+        }
+
+        .welcome-message {
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            font-style: italic;
+            margin-top: 10px;
+            opacity: 0;
+            animation: fadeIn 2s forwards 1s;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            text-align: center;
+            padding: 10px 0;
+            margin-top: auto;
+        }
+
+        footer p {
+            font-size: 1em;
+        }
+
+        .fade-out {
+            opacity: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <header>
+        <img src="logo1.png" alt="Left Logo" class="logo-left">
+        <h1>R.M.K. ENGINEERING COLLEGE</h1>
+        <h5>(AN AUTONOMOUS INSTITUTION)</h5>
+        <img src="logo2.png" alt="Right Logo" class="logo-right">
+    </header>
+
+    <nav>
+        <a href="index.html" onclick="transitionPage(event, 'index.html')">Home</a>
+        <a href="about.html" onclick="transitionPage(event, 'about.html')">About</a>
+        <a href="rules.html">Rules</a>
+        <a href="events.html">Events</a>
+        <a href="https://docs.google.com/forms/d/1Swq9MMdcdYDsZ0YWy2XKI-jZEowSbH7do2IZCG4ZsLQ/preview">Registration</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://www.rmkec.ac.in/2023/campus/transport/">Route</a>
+    </nav>
+
+    <div class="banner">
+        <h1>Department of Civil Engineering</h1>
+        <h3>Organizes</h3>
+        <p>National Level Technical symposium</p>
+        <h1>Colosseum 2K25</h1>
+        <h2>17th March 2025</h2>
+    </div>
+
+    <div class="welcome-message">
+        <p>Welcome You All!</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 R.M.K. Engineering College. All Rights Reserved.</p>
+    </footer>
+
+   
+</body>
+</html>

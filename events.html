@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colosseum '25</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: url('background1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            filter: blur(3px);
+            z-index: -1;
+        }
+
+        header {
+            padding: 20px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            position: relative;
+        }
+
+        header img.left-logo {
+            max-width: 100px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        header img.right-logo {
+            height: 120px;
+            width: auto;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            padding: 10px;
+            text-transform: uppercase;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ccc;
+            background-color: #fff;
+            border-color: #fff;
+            transform: scale(1.1);
+        }
+
+        .content {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .content h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .events {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 40px;
+            margin: 20px 0;
+        }
+
+        .events.technical {
+            grid-template-columns: repeat(2, minmax(180px, 1fr));
+        }
+
+        .event {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .event:hover {
+            transform: scale(1.05);
+        }
+
+        .event h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .event p {
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+
+        .event button {
+            background-color: #fff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .event button:hover {
+            background-color: #ccc;
+            transform: scale(1.1);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 1000;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+            min-height: 150px; /* Approximately 5 lines */
+            max-height: 600px; /* Approximately 20 lines */
+            overflow-y: auto;
+        }
+
+        .modal h2 {
+            margin-bottom: 10px;
+        }
+
+        .modal p {
+            margin-bottom: 20px;
+        }
+
+        .modal button {
+            background-color: #fff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .modal button:hover {
+            background-color: #ccc;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            text-align: center;
+            padding: 10px 0;
+            margin-top: auto;
+        }
+
+        footer p {
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo1.png" alt="Left Logo" class="left-logo">
+        <h1>R.M.K. ENGINEERING COLLEGE</h1>
+        <h5>(AN AUTONOMOUS INSTITUTION)</h5>
+        <img src="logo2.png" alt="Right Logo" class="right-logo">
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="rules.html">Rules</a>
+        <a href="events.html">Events</a>
+        <a href="https://docs.google.com/forms/d/1Swq9MMdcdYDsZ0YWy2XKI-jZEowSbH7do2IZCG4ZsLQ/preview">Registration</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://www.rmkec.ac.in/2023/campus/transport/">Route</a>
+    </nav>
+
+    <div class="content">
+        <h1>Technical Events</h1>
+        <div class="events technical">
+            <div class="event">
+                <h2>EVENT 1</h2>
+                <p>PAPER PRESENTATION</p>
+                <a href = "rule-1.html">
+                <button>Rules</button>
+            </a>
+            </div>
+            
+            <div class="event">
+                <h2>EVENT 2</h2>
+                <p>TESTING AN ENGINEER</p>
+                <a href = "rule-2.html">
+                <button>Rules</button>
+            </a>
+            </div>
+            <div class="event">
+                <h2>EVENT 3</h2>
+                <p>CRAFT THE STRUCT</p>
+                <a href = "rule-3.html">
+                <button>Rules</button>
+            </a>
+            </div>
+            <div class="event">
+                <h2>EVENT 4</h2>
+                <p>CAD CRASH</p><a href = "rule-4.html">
+                    <button>Rules</button>
+                </a>
+            </div>
+        </div>
+
+        <h1>Non-Technical Events</h1>
+        <div class="events">
+            <div class="event">
+                <h2>EVENT 5</h2>
+                <p>SURPRISE EVENTS</p>
+                <a href = "rule-5.html">
+                    <button>Rules</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" onclick="hideRules()"></div>
+    <div class="modal" id="rulesModal">
+        <h2>Event Rules</h2>
+        <p id="rulesText"></p>
+        <button onclick="hideRules()">Close</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 R.M.K. Engineering College. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function showRules(rules) {
+            const modal = document.getElementById('rulesModal');
+            const modalOverlay = document.querySelector('.modal-overlay');
+            const rulesText = document.getElementById('rulesText');
+
+            rulesText.textContent = rules;
+            modal.style.display = 'block';
+            modalOverlay.style.display = 'block';
+        }
+
+        function hideRules() {
+            const modal = document.getElementById('rulesModal');
+            const modalOverlay = document.querySelector('.modal-overlay');
+
+            modal.style.display = 'none';
+            modalOverlay.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
